@@ -26,12 +26,14 @@
           index -= 1;
         }
 
-        /*while (true){
+        var getNewTweets = function(){
           if (streams.home[initLength] != undefined){
             htmlTweet(initLength);
             initLength += 1;
           }
-        }*/
+        }
+
+        setInterval(getNewTweets, 1000);
        
       });
 
