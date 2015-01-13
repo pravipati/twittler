@@ -12,14 +12,27 @@
         $body.html('');
 
         var index = streams.home.length - 1;
-        while(index >= 0){
+        var initLength = index + 1;
+
+        var htmlTweet = function(index){
           var tweet = streams.home[index];
           var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
+          $tweet.text('@' + tweet.user + ': ' + tweet.message + " " + tweet.created_at);
           $tweet.appendTo($body);
+        }
+
+        while(index >= 0){
+          htmlTweet(index);
           index -= 1;
         }
 
+        /*while (true){
+          if (streams.home[initLength] != undefined){
+            htmlTweet(initLength);
+            initLength += 1;
+          }
+        }*/
+       
       });
 
     </script>
