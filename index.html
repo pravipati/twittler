@@ -17,8 +17,11 @@
         var htmlTweet = function(index){
           var tweet = streams.home[index];
           var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message + " " + tweet.created_at);
+          var $username = $('<a href="http://www.google.com"></a>');
+          $tweet.text(tweet.message + " " + tweet.created_at);
+          $username.text('@' + tweet.user + ': ');
           $tweet.appendTo($body);
+          $username.prependTo($tweet);
         }
 
         while(index >= 0){
